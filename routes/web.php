@@ -7,6 +7,7 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\TongController;
 use App\Http\Controllers\PostController;
 
+use App\Http\Controllers\ApiController;
 
 use App\Http\Controllers\signupController;
 
@@ -55,6 +56,8 @@ Route::get('/index',[PostController::class,'create']);
 Route::get('/signup',[signupController::class,'index']);
 Route::post('/signup',[signupController::class,'displayInfor']);
 
+// api
+Route::get('/api',[ApiController::class,'getData']);
 
 
 

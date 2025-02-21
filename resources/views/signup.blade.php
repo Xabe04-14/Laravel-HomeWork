@@ -29,7 +29,7 @@
     }
 
     form {
-        margin:20px 50px;
+        margin: 20px 50px;
     }
 
     input {
@@ -47,12 +47,24 @@
         border-color: pink;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .displayInfor{
+    .btn-delete{
+        width: 150px;
+        margin-bottom: 10px;
+        text-align: center;
+        background-color: pink;
+        padding: 5px;
+        border-radius: 8px;
+        border-color: pink;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .displayInfor {
         color: darkgreen;
         font-size: bolder;
     }
-    .alert{
-        color:red;
+
+    .alert,.btn-delete {
+        color: red;
     }
 </style>
 
@@ -86,13 +98,24 @@
             <button type="submit" class='btn'>OK</button>
 
             <div class="displayInfor">
-                @if(isset($user))
-                <p>Your Name: {{ $user['name'] }}</p><br>
-                <p>Your Date: {{ $user['date'] }}</p><br>
-                <p>Your Phone: {{ $user['phone'] }}</p><br>
-                <p>Your Website: {{ $user['web'] }}</p><br>
-                <p>Your Address: {{ $user['addr'] }}</p><br>
+                <h2>Danh sách người dùng</h2>
+                <br>
+                @if(isset($users) && count($users)>0)
+                @foreach (session('users') as $user)
+                <ul>
+                    <p>Your Name: {{ $user['name'] }}</p><br>
+                    <p>Your Date: {{ $user['date'] }}</p><br>
+                    <p>Your Phone: {{ $user['phone'] }}</p><br>
+                    <p>Your Website: {{ $user['web'] }}</p><br>
+                    <p>Your Address: {{ $user['addr'] }}</p><br>
+                    <button class="btn-delete">Xóa danh sách</button>
+                    <hr>
+                    <br>
+                </ul>
+             
+                @endforeach
                 @endif
+              
             </div>
         </form>
     </div>

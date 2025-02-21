@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\signupRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class signupController extends Controller
 {
@@ -12,13 +13,15 @@ class signupController extends Controller
      */
     public function index()
     {
-        return view('signup');
+        $users=Session::get('users',[]);
+        return view('signup')->with('users',$users);
     }
     /**
      * Show the form for creating a new resource.
      */
     public function displayInfor(signupRequest $Requests)
     {
+        $users=Session::get('users',[]);
         $user = [
             'name' => $Requests->input("name"),
             'age' => $Requests->input("age"),
@@ -26,8 +29,10 @@ class signupController extends Controller
             'phone' => $Requests->input("phone"),
             'web' => $Requests->input("web"),
             'addr' => $Requests->input("addr"),
-        ];        
-        return view('signup')->with('user',$user);
+        ];  
+        $users[]=$user;
+        Session::put('users',$users)  ;    
+        return view('signup')->with('users',$users);
     }
 
     /**
