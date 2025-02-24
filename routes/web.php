@@ -59,5 +59,9 @@ Route::post('/signup',[signupController::class,'displayInfor']);
 // api
 Route::get('/api',[ApiController::class,'getData']);
 
+// Mockapi
+use App\Http\Controllers\ProductController;
+Route::resource('products', ProductController::class);
+
 
 
