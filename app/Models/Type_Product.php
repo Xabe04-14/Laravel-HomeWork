@@ -20,6 +20,6 @@ class Type_Product extends Model
     // Quan hệ với bảng Products (một loại sản phẩm có nhiều sản phẩm)
     public function products()
     {
-        return $this->hasMany(Products::class, 'id_type');
+        return $this->hasMany(Product::class, 'id_type');
     }
 }

@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Slide;
-use App\Models\Products;
+use App\Models\Product;
 
 class SlideFactory extends Factory
 {
@@ -15,7 +15,7 @@ class SlideFactory extends Factory
         return [
             'link' => $this->faker->url(),
             'image' => $this->faker->imageUrl(640, 480, 'advertisement'),
-            'id_product' => Products::inRandomOrder()->first()->id ?? null,
+            'id_product' => Product::inRandomOrder()->first()->id ?? null,
         ];
     }
 }

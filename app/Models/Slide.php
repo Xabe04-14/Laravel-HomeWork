@@ -9,7 +9,7 @@ class Slide extends Model
 {
     use HasFactory;
 
-    protected $table = 'slide'; // Tên bảng trong database
+    protected $table = 'slide';
 
     protected $fillable = [
         'link',
@@ -17,9 +17,8 @@ class Slide extends Model
         'id_product',
     ];
 
-    // Quan hệ với bảng Products (một slide có thể liên kết với một sản phẩm)
     public function product()
     {
-        return $this->belongsTo(Products::class, 'id_product');
+        return $this->belongsTo(Product::class, 'id_product');
     }
 }

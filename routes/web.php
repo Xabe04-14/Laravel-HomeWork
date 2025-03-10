@@ -10,6 +10,7 @@ Route::get('/baitap1', [addController::class, 'tong']);
 Route::post('/baitap1', [addController::class, 'tinhTong']);
 
 use App\Http\Controllers\EshopeeController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Schema;
 
 Route::get('index',[EshopeeController::class,'index']);
@@ -21,3 +22,4 @@ Route::get('login',[EshopeeController::class,'login']);
 route::get('database',[CreateTableController::class,'create']);
 
 
+route::get('/trangchu',[PageController::class,'getIndex']);
